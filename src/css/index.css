@@ -5,3 +5,6 @@
 *{
     font-family: 'Product Sans', sans-serif; 
 }
+.cursorPointer{
+    cursor: pointer;
+}
