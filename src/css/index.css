@@ -1,10 +1,82 @@
-@font-face{
+@font-face {
     font-family: 'Product Sans';
     src: url('../assets/fonts/ProductSans-Regular.ttf');
 }
-*{
-    font-family: 'Product Sans', sans-serif; 
+
+* {
+    font-family: 'Product Sans', sans-serif;
 }
-.cursorPointer{
+a{
+    width: fit-content !important;
+}
+::selection{
+    background: #bbbbbb70;
+}
+
+.cursorPointer {
     cursor: pointer;
+}
+
+#presentacion{
+    z-index: 9;
+}
+
+
+.animatetop {
+    animation: animatetop ease 1.4s;
+    -webkit-animation: animatetop ease 1.4s;
+    -moz-animation: animatetop ease 1.4s;
+    -o-animation: animatetop ease 1.4s;
+    -ms-animation: animatetop ease 1.4s;
+}
+
+@keyframes animatetop {
+    0% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+    70%{
+        opacity: 0.76;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+        
+    }
+}
+
+.fade-in {
+    animation: fade-in ease 1.4s;
+    -webkit-animation: fade-in ease 1.4s;
+    -moz-animation: fade-in ease 1.4s;
+    -o-animation: fade-in ease 1.4s;
+    -ms-animation: fade-in ease 1.4s;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        
+    }
+}
+
+.fade-out {
+    animation: fade-out ease 0.6s;
+    -webkit-animation: fade-out ease 0.6s;
+    -moz-animation: fade-out ease 0.6s;
+    -o-animation: fade-out ease 0.6s;
+    -ms-animation: ffade-out ease 0.6s;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        
+    }
 }
