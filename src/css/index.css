@@ -5,10 +5,13 @@
 
 * {
     font-family: 'Product Sans', sans-serif;
+    
 }
 a{
     width: fit-content !important;
+    text-decoration: none;
 }
+
 ::selection{
     background: #bbbbbb70;
 }
