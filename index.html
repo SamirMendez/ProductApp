@@ -19,7 +19,90 @@
 	<!-- Importando css personalizado -->
 </head>
 
-<body class="overflow-hidden">
+<body>
+
+	<!-- Modal -->
+	<div class="modal fade" id="ModalAgregarCategoria" data-backdrop="static" data-keyboard="false" tabindex="-1"
+		aria-labelledby="ModalAgregarCategoriaLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="ModalAgregarCategoriaLabel">Agregar categoria</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="NombreCategoria">Nombre</label>
+							<input type="text" class="form-control" id="NombreCategoria">
+							<small id="NombreCategoria" class="form-text text-muted">Especifique el nombre del producto</small>
+						</div>
+						<div class="form-group">
+							<label for="CatagoriaProducto">Categoria</label>
+							<input type="CatagoriaProducto" class="form-control" id="CatagoriaProducto">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary">Crear</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="ModalProducto" data-backdrop="static" data-keyboard="false" tabindex="-1"
+		aria-labelledby="ModalProducto" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="ModalProducto">Agregar Producto</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="NombreProducto">Nombre</label>
+							<input type="text" class="form-control" id="NombreProducto" aria-describedby="emailHelp">
+							<small id="ProductolHelp" class="form-text text-muted">Especifique el nombre del producto</small>
+						</div>
+						<div class="form-group">
+							<label for="StockProducto">Stock</label>
+							<input type="number" class="form-control" id="StockProducto">
+						</div>
+						<div class="form-group">
+							<label for="fechaProducto">Fecha de vencimiento</label>
+							<input type="date" class="form-control" id="fechaProducto">
+						</div>
+						<div class="form-group">
+							<label for="descriptionProducto">Descripcion</label>
+							<textarea class="form-control" id="descriptionProducto" rows="2"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlSelect2">Example multiple select</label>
+							<select class="form-control" id="exampleFormControlSelect1">
+								<option>Categoria 1</option>
+								<option>Categoria 2</option>
+								<option>Categoria 3</option>
+								<option>Categoria 4</option>
+								<option>Categoria 5</option>
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary">Crear</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Barra superior -->
 	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm">
 		<h5 class="my-0 mr-md-auto font-weight-normal"> <a href="#"
@@ -37,7 +120,7 @@
 	<div id="myCarousel" class="carousel slide " data-interval="false" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<section class="pt-5 pb-5 overflow-hidden w">
+				<section class="pt-5 pb-5 w-auto">
 					<div class=" d-flex flex-column justify-content-around pb-5 animatetop" id="presentacion">
 						<h1 class="text-center mt-5 display-3">Product-App</h1>
 						<p>
@@ -53,7 +136,8 @@
 						</p>
 
 						<div class="m-3">
-							<button class="btn btn-lg btn-dark text-center m-auto d-block" id="dataButton">
+							<button class="btn btn-lg btn-dark text-center m-auto d-block" id="dataButton" data-toggle="modal"
+								data-target="#ModalProducto">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
 									class="bi bi-clipboard-data mr-3" viewBox="0 0 16 16">
 									<path
@@ -65,7 +149,7 @@
 								</svg>
 								Agregar datos al sistema
 							</button>
-							<a class=" d-block text-decoration-none bg-transparent text-center text-dark m-auto p-5"
+							<a class=" d-block text-decoration-none bg-transparent text-center text-dark mt-5 ml-auto mr-auto p-1"
 								href="https://github.com/SamirMendez/ProductApp" target="_blank">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
 									class="bi bi-github mr-3" viewBox="0 0 16 16">
@@ -78,95 +162,98 @@
 					</div>
 				</section>
 			</div>
-			
+
+
+
 			<!-- Tabla/ Categoria -->
-			<div class="carousel-item">
+			<div class="carousel-item p-5">
 				<h1 class="text-center mt-5 display-3">Product-App / Categorias</h1>
 				<div class="container">
 					<div class="abs-center">
 						<table class="table table-hover  ">
-						<thead class="thead-dark">
-						<tr>
-							<th scope="col"> id </th>
-							<th scope="col"> Nombre </th>
-							<th scope="col"> Codigo </th>
-							<th scope="col"> Categoria </th>
-						</tr>
-						</thead>
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col"> id </th>
+									<th scope="col"> Nombre </th>
+									<th scope="col"> Codigo </th>
+									<th scope="col"> Categoria </th>
+								</tr>
+							</thead>
 							<tbody>
 								<tr>
 									<th scope="row">1</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>Saco</td>
-							</tr>
-						<tr>
+								</tr>
+								<tr>
 									<th scope="row">2</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>Saco</td>
-						</tr>
-							<tr>
+								</tr>
+								<tr>
 									<th scope="row">3</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>Saco</td>
-									
-							</tr>
-							<tr>
+
+								</tr>
+								<tr>
 									<th scope="row">4</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>Saco</td>
-						</tr>
-						<tr>
+								</tr>
+								<tr>
 									<th scope="row">5</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>Saco</td>
-					</tr>
-					<tr>
+								</tr>
+								<tr>
 									<th scope="row">6</th>
 									<td>Arroz</td>
 									<td>001</td>
-									<td>Saco</td>> 
-					</tr>
-					<tr>
+									<td>Saco</td>
+								</tr>
+								<tr>
 									<th scope="row">7</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>Saco</td>
-					</tr>
-					<tr>
+								</tr>
+								<tr>
 									<th scope="row">8</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>Saco</td>
-					</tr>
-					<tr>
+								</tr>
+								<tr>
 									<th scope="row">9</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>Saco</td>
-					</tr>
-					<tr>
+								</tr>
+								<tr>
 									<th scope="row">10</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>Saco</td>
-					</tr>
-					<tr>
+								</tr>
+								<tr>
 									<th scope="row">11</th>
 									<td>Arroz</td>
 									<td>001</td>
-									<td>Saco</td>> 
-					</tr>
-								</tbody>
-								</table>
-						 </table>
-					</div>   
-					
-					<button class="btn btn-lg btn-dark text-center m-auto d-block" id="dataButton">
+									<td>Saco</td>
+								</tr>
+							</tbody>
+						</table>
+						</table>
+					</div>
+
+					<button class="btn btn-lg btn-dark text-center m-auto d-block" id="dataButton" data-toggle="modal"
+						data-target="#ModalAgregarCategoria">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
 							class="bi bi-clipboard-data mr-3" viewBox="0 0 16 16">
 							<path
@@ -175,35 +262,34 @@
 								d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
 							<path
 								d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
-						</svg> 
-				
+						</svg>
+
 						volver al menu principal
-						
+
 					</button>
-				
+
 				</div>
 			</div>
 			<!-- Tabla/ Categoria -->
 
-
 			<!-- Tabla/ Productos -->
 			<div class="carousel-item">
-				<div class="container">
+				<div class="container mb-5">
 					<h1 class="text-center mt-5 display-3">Product-App / Productos</h1>
 					<div class="abs-center">
 						<table class="table table-hover  ">
-						<thead class="thead-dark">
-						<tr>
-							<th scope="col"> id </th>
-							<th scope="col"> Nombre </th>
-							<th scope="col"> Codigo </th>
-							<th scope="col"> Stock </th>
-							<th scope="col"> Fecha Vencimiento </th>
-							<th scope="col"> Descripcion </th>
-							<th scope="col"> Categoria </th>
-							<th scope="col"> Estado </th>
-						</tr>
-						</thead>
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col"> id </th>
+									<th scope="col"> Nombre </th>
+									<th scope="col"> Codigo </th>
+									<th scope="col"> Stock </th>
+									<th scope="col"> Fecha Vencimiento </th>
+									<th scope="col"> Descripcion </th>
+									<th scope="col"> Categoria </th>
+									<th scope="col"> Estado </th>
+								</tr>
+							</thead>
 							<tbody>
 								<tr>
 									<th scope="row">1</th>
@@ -211,116 +297,117 @@
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-							</tr>
-						<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">2</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-						</tr>
-							<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">3</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-							</tr>
-							<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">4</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-						</tr>
-						<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">5</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-					</tr>
-					<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">6</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-					</tr>
-					<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">7</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-					</tr>
-					<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">8</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-					</tr>
-					<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">9</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-					</tr>
-					<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">10</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-					</tr>
-					<tr>
+									<td>Activo</td>
+								</tr>
+								<tr>
 									<th scope="row">11</th>
 									<td>Arroz</td>
 									<td>001</td>
 									<td>100</td>
 									<td>28/5/2021</td>
-									<td>120 LB</td> 
+									<td>120 LB</td>
 									<td>Saco</td>
-									<td>Activo</td> 
-					</tr>
-								</tbody>
-								</table>
-						 </table>
-					</div>   
-					
-					<button class="btn btn-lg btn-dark text-center m-auto d-block" id="dataButton">
+									<td>Activo</td>
+								</tr>
+							</tbody>
+						</table>
+						</table>
+					</div>
+
+					<button class="btn btn-lg btn-dark text-center m-auto d-block" id="dataButton" data-toggle="modal"
+						data-target="#ModalProducto">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
 							class="bi bi-clipboard-data mr-3" viewBox="0 0 16 16">
 							<path
@@ -329,14 +416,14 @@
 								d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
 							<path
 								d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
-						</svg> 
-				
+						</svg>
+
 						Agregar datos a la tabla
-						
+
 					</button>
-				
+
 				</div>
-				
+
 			</div>
 			<!-- Tabla/ Productos -->
 
