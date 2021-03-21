@@ -18,8 +18,9 @@ window.addEventListener('load', () => {
             category: $category,
             id: Date.now(),
         };
-        console.log(dataToSave);
         saveProduct(dataToSave);
+        console.log(dataToSave);
+
     });
 });
 // Crear funcion de escucha para capturar los datos del formulario
@@ -31,6 +32,7 @@ function readLocalStorage() {
     const $productsSaved = localStorage.getItem('productsList');
     if ($categoriesSaved != null || $categoriesSaved != undefined) {
         const convertedData = JSON.parse($categoriesSaved);
+        console.log(convertedData);
         categoriesListing(convertedData);
     }
     // Extrayendo datos del local storage
@@ -49,6 +51,7 @@ function categoriesListing(categoryData) {
     categoriesSelect.innerHTML = '';
     // Creando una referencia al elemento del DOM con el ID
     for (let index = 0; index < categoryData.length; index++) {
+        console.log(index);
         // Creando elementos en el DOM
         const option = createHTMLElement('option');
         option.innerHTML = categoryData[index].name;

@@ -10,6 +10,6 @@ FITNESS FOR A PARTICULAR PURPOSE.
 
 
 ## Products App 
-Yet another Jquery CRUD for a college.
+Yet another Vue js CRUD for a college.
 
 ![Logo](src/assets/ilustrations/itla-logo.png)

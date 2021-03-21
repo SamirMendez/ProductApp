@@ -19,19 +19,3 @@ $('#categoriesButton').click('slide.bs.carousel', function () {
 $('#productButton').click('slide.bs.carousel', function () {
     $('#myCarousel').carousel(2);
 })
-
-
-window.onload = () => {
-    // Funcion para estar pendiente cuando se hace click sobre el boton de las categorias
-    const categoryButton = document.getElementById('categoriesButton');
-    // location.href = '#carouselExampleControls';
-
-    // Funcion para estar pendiente cuando se hace click sobre el boton de las categorias
-    // Funcion para estar pendiente cuando se hace click sobre el boton de los productos
-    const productButton = document.getElementById('productButton');
-    // productButton.addEventListener('click', () => {
-    //     location.href = 'src/pages/products.html';
-    // });
-    // Funcion para estar pendiente cuando se hace click sobre el boton de los productos
-
-}
